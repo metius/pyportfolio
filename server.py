@@ -18,7 +18,7 @@ def write_to_file(data):
     email, subject, message = data.values()
     message = message.replace("\n", "<br>")
     try:
-        with open('database.txt', mode='a') as db:
+        with open('./database.txt', mode='a') as db:
             file = db.write(
                 f'{email},{subject},{message}' + '\n')
     except FileNotFoundError as e:
@@ -29,7 +29,7 @@ def write_to_csv(data):
     email, subject, message = data.values()
     message = message.replace("\n", "<br>")
     try:
-        with open('database.csv', mode='a') as db:
+        with open('./database.csv', mode='a') as db:
             csv_writer = csv.writer(
                 db, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             csv_writer.writerow([email, subject, message])
